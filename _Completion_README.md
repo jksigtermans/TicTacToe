@@ -23,7 +23,7 @@ Status: applied basic technologies and built application scaffolding.
 
 4) Lombok framework (avoiding boilerplate code)
 
-5) Java version 11
+5) Java version 11 (currently minimal standard used in the field)
 
 ** Not yet applied assignment requirements: **
 
@@ -67,10 +67,12 @@ Non-secure call to register a player with UN=foo and PW=bar:
 
 	http://localhost:8080/srv/register_player/foo/bar
 
-Create a new game for player with ID=15, playing against the computer (true) or leave game available to another player (false):
+Secure call to create a new game for player with ID=15, playing against the computer (true) or leave game available to another player (false):
 	
 	http://localhost:8080/srv/create_game/15/true
 	
-Show currently available games:
+Secure call to show currently available games:
 	
 	http://localhost:8080/srv/get_available_games
+
+** Note: ** secure calls need a Basic Auth header for UN=foo and PW=bar: Authorization=Basic Zm9vOmJhcg==
