@@ -1,0 +1,16 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: "Tic-Tac-Toe Application"
+  profiles:
+    active: "local"
+  datasource:
+    initialization-mode: never
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=[mysecretpassword]&ssl=false"
+
+logging:
+  level: 
+    root: INFO
+    com.maescaprey: DEBUG
