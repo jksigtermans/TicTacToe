@@ -59,9 +59,11 @@ Why: too little time :-)
 
 2) Apply table creation scripts in project root
 
-3) Run application as a Spring Boot application
+3) Apply database credentials in application.yaml
 
-4) Optional requests:
+4) Run application as a Spring Boot application
+
+5) Optional requests:
 
 Non-secure call to register a player with UN=foo and PW=bar:
 
