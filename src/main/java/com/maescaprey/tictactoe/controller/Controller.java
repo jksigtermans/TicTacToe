@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.maescaprey.tictactoe.constant.GameType;
 import com.maescaprey.tictactoe.domain.Game;
 import com.maescaprey.tictactoe.domain.Player;
-import com.maescaprey.tictactoe.exception.GameRuntimeException;
 import com.maescaprey.tictactoe.service.ActorService;
 import com.maescaprey.tictactoe.to.GameConfiguration;
 import com.maescaprey.tictactoe.to.UserCredentials;
@@ -39,8 +37,11 @@ public class Controller {
 	@Autowired
 	private ActorService actorService;
 	
-	@Autowired
-	private AuthenticationManagerBuilder authenticationManagerBuilder;
+//	/*
+//	 * Builder to manage credentials for authentication. 
+//	 */
+//	@Autowired
+//	private AuthenticationManagerBuilder authenticationManagerBuilder;
 	
 	/*
 	 * An actor to handle registering of players.
@@ -86,13 +87,13 @@ public class Controller {
 		final Player newPlayer = actorService.askAndAwait(registerPlayerActor, credentials, Player.class, 5000L);
 
 //TODO: add credentials to collection of authenticated users
-        try {
-			authenticationManagerBuilder.inMemoryAuthentication().withUser(userName).password(password).roles("USER");
-
-        } catch (final Exception exception) {
-
-			throw new GameRuntimeException("Unable to register user: " + userName, exception);
-		}
+//        try {
+//			authenticationManagerBuilder.inMemoryAuthentication().withUser(userName).password(password).roles("USER");
+//
+//        } catch (final Exception exception) {
+//
+//			throw new GameRuntimeException("Unable to register user: " + userName, exception);
+//		}
 
 		return ResponseEntity.ok(newPlayer);
 	}
